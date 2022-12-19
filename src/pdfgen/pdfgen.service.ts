@@ -21,7 +21,7 @@ export class PdfgenService {
     }
   ]
 
-  // constructor(private readonly pdfService: PDFService);
+  constructor(private readonly pdfService: PDFService) {};
 
   findAll(): Pdfgen[] {
     return this.pdfgens;
