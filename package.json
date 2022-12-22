@@ -25,10 +25,14 @@
     "@nestjs/core": "^9.2.1",
     "@nestjs/platform-express": "^9.0.0",
     "@t00nday/nestjs-pdf": "^3.0.5",
+    "@types/html-pdf": "^3.0.0",
+    "core-js": "^3.26.1",
     "dotenv": "^16.0.3",
+    "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",

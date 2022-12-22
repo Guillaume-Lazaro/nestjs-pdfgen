@@ -4,6 +4,7 @@ import { CreatePdfgenDto } from './dto/create-pdfgen.dto';
 import { Pdfgen } from './interfaces/pdfgen.interface';
 import { Observable } from 'rxjs';
 import { FileInfo } from 'html-pdf';
+import { Readable } from 'stream';
 
 @Injectable()
 export class PdfgenService {
@@ -76,8 +77,8 @@ export class PdfgenService {
 
   // PDF génération
   public getTestPdf(): Observable<FileInfo> {
-    return this.pdfService.generatePdfFile(
-      'test',
+    let a = this.pdfService.generatePdfFile(
+      'html',
       {
         locals: this.mockedReceipt,
         format: 'A4',
@@ -91,7 +92,41 @@ export class PdfgenService {
       },
       'test.pdf',
     );
+
+    console.log(a);
+
+    return a;
   };
+
+  // Stream
+  public getTestPdfStream() : Observable<Readable> {
+    return this.pdfService.generatePdfStream(
+      'html',
+      {
+        locals: this.mockedReceipt,
+        format: 'A4',
+        header: {
+          height: '75px',
+        },
+        footer: {
+          height: '100px',
+        },
+        orientation: 'portrait',
+      },
+    );
+  };
+
+  ////////
+  // public getCompanyOutcouponPdfStream(originalHeaders: Headers, id: number): Observable<Readable> {
+  //   return this.outcouponsGraphQL.getCompanyAccountingOutcouponReceipts(originalHeaders, id).pipe(
+  //     mergeMap((accOutcoupon) => {
+  //       const dataForPdfGen =
+  //         this.formatAccOutCouponToCompanyOutcouponDataForPdfGen(accOutcoupon);
+  //       return this.generateCompanyOutcouponPdfStream(dataForPdfGen);
+  //     }),
+  //   );
+  // }
+  ////////
 
   public mockedReceipt = {
     date: '14 octobre 2021',
