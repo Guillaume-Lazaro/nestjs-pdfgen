@@ -1,8 +1,11 @@
 doctype html
 html(lang='en')
- head
-   title Pdfgen ! Hello !
- body
-   h1 Hello, Pdfgen !
-   div.remark
-     p Essai de template avec nestjs-pdf et pug comme moteur de templating
+head
+  title Pdfgen ! Hello !
+body
+  h1 Hello, Pdfgen !
+  div.remark
+    p Essai de template avec nestjs-pdf et pug comme moteur de templating
+
+    p Exemple d'utilisation de variable : #{headerText}
+    p Une autre variable de test.mock.ts : #{date}

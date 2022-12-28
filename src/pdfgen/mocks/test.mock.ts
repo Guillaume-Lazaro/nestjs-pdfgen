@@ -14,7 +14,7 @@ export const mockedReceipt = {
     '<p class="ql-align-center"><strong class="ql-size-large"><u>APPEL DE COTISATION﻿</u></strong></p><p class="ql-align-center"><strong>Valant quittance après paiement</strong></p>',
     // headerText:
     // '<p>Nous vous prions de trouver ci-dessous, le détail de vos <span style="color: rgb(255, 153, 0);">primes</span> <span style="color: rgb(255, 153, 0);">d’assurance</span> arrivées à échéance.</p>',
-  headerText: '<p>Ceci est un test de note externe</p>',
+  headerText: 'p Ceci est un test de note externe',
   company: 'AXA',
   contract: '10230330004',
   category: 'Multirisque Professionnelle',
