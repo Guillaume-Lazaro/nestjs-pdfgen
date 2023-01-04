@@ -28,6 +28,8 @@
     "@types/html-pdf": "^3.0.0",
     "core-js": "^3.26.1",
     "dotenv": "^16.0.3",
+    "echarts": "^5.4.1",
+    "jspdf": "^2.5.1",
     "pug": "^3.0.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",

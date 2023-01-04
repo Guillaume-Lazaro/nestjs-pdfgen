@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { PdfgenService } from './pdfgen/pdfgen.service';
 import { PdfgenModule } from './pdfgen/pdfgen.module';
 import { PdfService } from './pdf/pdf.service';
+import { JspdfController } from './jspdf/jspdf.controller';
+import { JspdfService } from './jspdf/jspdf.service';
 
 @Module({
   imports: [
@@ -16,7 +18,7 @@ import { PdfService } from './pdf/pdf.service';
     }),
     PdfgenModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, PdfgenService, PdfService],
+  controllers: [AppController, JspdfController],
+  providers: [AppService, PdfgenService, PdfService, JspdfService],
 })
 export class AppModule {}
