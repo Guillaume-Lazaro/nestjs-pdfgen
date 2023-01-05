@@ -1,70 +1,21 @@
 import { Controller, Get } from '@nestjs/common';
-import echarts from 'echarts';
+import * as echarts from 'echarts';
+import { EChartsOption } from 'echarts';
 import jsPDF from 'jspdf';
 import { JspdfService } from './jspdf.service';
+import fs from 'fs';
 
 @Controller('jspdf')
 export class JspdfController {
     constructor(private readonly jspdfService: JspdfService) {}
 
-    chart1 = echarts.init(document.getElementById("chart1"));
-    chart2 = echarts.init(document.getElementById("chart2"));
+    chartOptions: EChartsOption = {};
 
     @Get()
     getJspdfs() {
-        var doc = new jsPDF();
-
-        this.chart1.setOption({
-            backgroundColor: "#fff",
-            series: [
-                {
-                    type: "pie",
-                    radius: [20, 140],
-                    roseType: "radius",
-                    itemStyle: {
-                        borderRadius: 5
-                    },
-                    label: {
-                        show: false
-                    },
-                    data: [
-                        { value: 40, name: "rose 1" },
-                        { value: 33, name: "rose 2" },
-                        { value: 28, name: "rose 3" },
-                        { value: 22, name: "rose 4" },
-                        { value: 20, name: "rose 5" },
-                        { value: 15, name: "rose 6" },
-                        { value: 12, name: "rose 7" },
-                        { value: 10, name: "rose 8" }
-                    ]
-                }
-            ]
-        });
+        let doc = new jsPDF();
+        this.jspdfService.getChartSvgString();
     }
-
-
-    // this.chart2.setOption({
-    // backgroundColor: "#fff",
-    // xAxis: {
-    //     type: "category",
-    //     data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    // },
-    // yAxis: {
-    //     type: "value"
-    // },
-    // series: [
-    //     {
-    //     data: [150, 230, 224, 218, 135, 147, 260],
-    //     type: "line",
-    //     areaStyle: {}
-    //     }
-    // ]
-    // });
-
-// window.addEventListener("resize", () => {
-//   chart1.resize();
-//   chart2.resize();
-// });
 
 // function loadImage(src) {
 //   return new Promise((resolve, reject) => {
@@ -78,11 +29,6 @@ export class JspdfController {
 // function getChartImage(chart) {
 //   return loadImage(chart.getDataURL());
 // }
-
-// const btnExport = document.getElementById("export");
-
-// btnExport.addEventListener("click", async () => {
-//   console.log("exporting...");
 
 //   try {
 //     const img1 = await getChartImage(chart1);
